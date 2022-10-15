@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dosis&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>The Great Memory Game</h1>
+      <span class="countdown hidden"></span>
+    </div>
+
+    <div class="grid_assigned">
+      <div class="row">
+        <div class="grid_assigned_field"></div>
+        <div class="grid_assigned_field"></div>
+        <div class="grid_assigned_field"></div>
+      </div>
+      <div class="row">
+        <div class="grid_assigned_field"></div>
+        <div class="grid_assigned_field"></div>
+        <div class="grid_assigned_field"></div>
+      </div>
+      <div class="row">
+        <div class="grid_assigned_field"></div>
+        <div class="grid_assigned_field"></div>
+        <div class="grid_assigned_field"></div>
+      </div>
+    </div>
+    <div class="button">
+      <button class="btn" onclick="loadAnimals()">
+        Give me some animals <br />
+        and start the game!
+      </button>
+    </div>
+
+    <div class="grid_player hidden">
+      <div class="row">
+        <div class="grid_player_field activeField"></div>
+        <div class="grid_player_field"></div>
+        <div class="grid_player_field"></div>
+      </div>
+      <div class="row">
+        <div class="grid_player_field"></div>
+        <div class="grid_player_field"></div>
+        <div class="grid_player_field"></div>
+      </div>
+      <div class="row">
+        <div class="grid_player_field"></div>
+        <div class="grid_player_field"></div>
+        <div class="grid_player_field"></div>
+      </div>
+    </div>
+
+    <div class="keyboard hidden">
+      <button>🦒</button>
+      <button>🦓</button>
+      <button>🦏</button>
+      <button>🐈</button>
+      <button>🐫</button>
+      <button>🦥</button>
+      <button>🐘</button>
+      <button>🦨</button>
+      <button>🦔</button>
+      <button>🐿️</button>
+      <button>🐳</button>
+      <button>🦞</button>
+      <button>🦉</button>
+      <button>🐧</button>
+      <button>🦘</button>
+    </div>
+    <div class="result_button hidden">
+      <button id="result" class="result_btn">I'm done!</button>
+    </div>
+
+    <div class="grid_result hidden">
+      <div class="row">
+        <div class="grid_result_field rotate"></div>
+        <div class="grid_result_field rotate"></div>
+        <div class="grid_result_field rotate"></div>
+      </div>
+      <div class="row">
+        <div class="grid_result_field rotate"></div>
+        <div class="grid_result_field rotate"></div>
+        <div class="grid_result_field rotate"></div>
+      </div>
+      <div class="row">
+        <div class="grid_result_field rotate"></div>
+        <div class="grid_result_field rotate"></div>
+        <div class="grid_result_field rotate"></div>
+      </div>
+      <p class="verdict"></p>
+      <p class="correct"></p>
+    </div>
+    <div class="reset hidden">
+      <button id="reset" class="reset_btn" onclick="history.go(0)">
+        Try again!
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
