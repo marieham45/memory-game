@@ -40,7 +40,7 @@ const correct = document.querySelector(".correct");
 
 function loadAnimals() {
   fields.forEach((field) => {
-    field.innerHTML =
+    field.textContent =
       memoryArray[Math.floor(Math.random() * memoryArray.length)];
   });
   const mediaQuery = window.matchMedia("(min-width: 700px)");
@@ -67,12 +67,12 @@ startButton.addEventListener("click", () => {
     if (mediaQuery.matches) {
       heading.style.fontSize = "2.5rem";
       countDown.style.fontSize = "2.5rem";
-      heading.innerHTML = "Tap a box to add an animal before the time is up!";
+      heading.textContent = "Tap a box to add an animal before the time is up!";
     } else {
       heading.style.fontSize = "1.6rem";
       countDown.style.fontSize = "1.6rem";
-      heading.innerHTML =
-        "Tap a box to add an animal <br> before the time is up!";
+      heading.textContent =
+        "Tap a box to add an animal </br> before the time is up!";
     }
 
     /* COUNTDOWN */
@@ -81,9 +81,9 @@ startButton.addEventListener("click", () => {
     var downloadTimer = setInterval(function () {
       if (timeleft <= 0) {
         clearInterval(downloadTimer);
-        countDown.innerHTML = "";
+        countDown.textContent = "";
       } else {
-        countDown.innerHTML = timeleft;
+        countDown.textContent = timeleft;
       }
       timeleft -= 1;
     }, 1000);
@@ -114,7 +114,7 @@ inputs.forEach((policko) => {
 buttons.forEach(function (item) {
   item.addEventListener("click", (event) => {
     const activeField = document.querySelector(".activeField");
-    activeField.innerHTML = event.target.innerHTML;
+    activeField.textContent = event.target.textContent;
     activeField.classList.remove("activeField");
   });
 });
@@ -130,19 +130,19 @@ function check() {
   countDown.classList.add("hidden");
 
   for (let i = 0; i < fields.length; i++) {
-    if (fields[i].innerHTML === inputs[i].innerHTML) {
-      results[i].innerHTML = inputs[i].innerHTML;
+    if (fields[i].textContent === inputs[i].textContent) {
+      results[i].textContent = inputs[i].textContent;
       results[i].classList.add("green");
     } else {
-      results[i].innerHTML = fields[i].innerHTML;
+      results[i].textContent = fields[i].textContent;
       results[i].classList.add("gray");
       results[i].addEventListener("click", () => {
-        if (results[i].innerHTML === fields[i].innerHTML) {
-          results[i].innerHTML = inputs[i].innerHTML;
+        if (results[i].textContent === fields[i].textContent) {
+          results[i].textContent = inputs[i].textContent;
           results[i].classList.add("red");
           results[i].classList.remove("gray");
         } else {
-          results[i].innerHTML = fields[i].innerHTML;
+          results[i].textContent = fields[i].textContent;
           results[i].classList.remove("red");
           results[i].classList.add("gray");
         }
@@ -199,7 +199,7 @@ function check() {
       skillEvaluation = "Something went wrong...";
   }
 
-  heading.innerHTML = skillEvaluation;
+  heading.textContent = skillEvaluation;
   heading.style.color = resultColor;
   const mediaQuery = window.matchMedia("(min-width: 700px)");
   if (mediaQuery.matches) {
@@ -208,7 +208,7 @@ function check() {
     heading.style.fontSize = "2.5rem";
   }
 
-  verdict.innerHTML =
+  verdict.textContent =
     "You got " + greenResults.length + " out of " + results.length + " right!";
-  correct.innerHTML = seeCorrect;
+  correct.textContent = seeCorrect;
 }
