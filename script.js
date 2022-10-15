@@ -62,14 +62,17 @@ startButton.addEventListener("click", () => {
     resultButton.classList.remove("hidden");
     keyboard.classList.remove("hidden");
     countDown.classList.remove("hidden");
-    heading.innerHTML = "Tap a box to add an animal before the time is up!";
+
     const mediaQuery = window.matchMedia("(min-width: 700px)");
     if (mediaQuery.matches) {
       heading.style.fontSize = "2.5rem";
       countDown.style.fontSize = "2.5rem";
+      heading.innerHTML = "Tap a box to add an animal before the time is up!";
     } else {
       heading.style.fontSize = "1.6rem";
       countDown.style.fontSize = "1.6rem";
+      heading.innerHTML =
+        "Tap a box to add an animal <br> before the time is up!";
     }
 
     /* COUNTDOWN */
