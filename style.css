@@ -301,6 +301,7 @@ body {
 
     .keyboard button {
         flex-basis: calc((100%/5) - 2px);
+        font-size: 50px;
     }
 
 
