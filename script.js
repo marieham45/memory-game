@@ -71,7 +71,7 @@ startButton.addEventListener("click", () => {
     } else {
       heading.style.fontSize = "1.6rem";
       countDown.style.fontSize = "1.6rem";
-      heading.textContent =
+      heading.innerHTML =
         "Tap a box to add an animal </br> before the time is up!";
     }
 
