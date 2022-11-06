@@ -25,7 +25,7 @@ const keyboard = document.querySelector(".keyboard");
 const heading = document.querySelector("h1");
 const countDown = document.querySelector(".countdown");
 
-const startButton = document.querySelector(".button");
+const startButton = document.querySelector(".btn");
 const resultButton = document.querySelector(".result_button");
 const resetButton = document.querySelector(".reset");
 
@@ -36,25 +36,21 @@ const results = document.querySelectorAll(".grid_result_field");
 const verdict = document.querySelector(".verdict");
 const correct = document.querySelector(".correct");
 
-/* LOADING ANIMALS */
+/* ZAHAJENI HRY + CASOVY LIMIT NA ZAPAMATOVANI */
 
-function loadAnimals() {
+startButton.addEventListener("click", () => {
   fields.forEach((field) => {
     field.textContent =
       memoryArray[Math.floor(Math.random() * memoryArray.length)];
   });
+  heading.innerHTML = "You have 15 seconds <br> to remeber all the animals!";
   const mediaQuery = window.matchMedia("(min-width: 700px)");
   if (mediaQuery.matches) {
-    heading.style.fontSize = "3rem";
+    heading.style.fontSize = "2.5rem";
   } else {
-    heading.style.fontSize = "2rem";
+    heading.style.fontSize = "1.6rem";
   }
-}
 
-/* ZAHAJENI HRY + CASOVY LIMIT NA ZAPAMATOVANI */
-
-startButton.addEventListener("click", () => {
-  heading.innerHTML = "You have 20 seconds <br> to remeber all the animals!";
   startButton.classList.add("hidden");
   setTimeout(() => {
     assignment.classList.add("hidden");
@@ -77,8 +73,8 @@ startButton.addEventListener("click", () => {
 
     /* COUNTDOWN */
 
-    var timeleft = 59;
-    var downloadTimer = setInterval(function () {
+    let timeleft = 59;
+    const downloadTimer = setInterval(() => {
       if (timeleft <= 0) {
         clearInterval(downloadTimer);
         countDown.textContent = "";
@@ -87,11 +83,11 @@ startButton.addEventListener("click", () => {
       }
       timeleft -= 1;
     }, 1000);
-  }, 10000);
+  }, 15000);
 
   /* CASOVY LIMIT NA VYPLNENI */
 
-  setTimeout(check, 70000);
+  setTimeout(check, 75000);
 });
 
 /* PREDCASNE ODEVZDANI KLIKNUTIM NA TLACITKO */
@@ -100,10 +96,10 @@ resultButton.addEventListener("click", check);
 
 /* AKTIVNI POLE */
 
-inputs.forEach((policko) => {
-  policko.addEventListener("click", function (event) {
-    inputs.forEach((policko) => {
-      policko.classList.remove("activeField");
+inputs.forEach((input) => {
+  input.addEventListener("click", (event) => {
+    inputs.forEach((input) => {
+      input.classList.remove("activeField");
     });
     event.target.classList.add("activeField");
   });
@@ -208,7 +204,6 @@ function check() {
     heading.style.fontSize = "2.5rem";
   }
 
-  verdict.textContent =
-    "You got " + greenResults.length + " out of " + results.length + " right!";
+  verdict.textContent = `You got ${greenResults.length} out of ${results.length}  right!`;
   correct.textContent = seeCorrect;
 }

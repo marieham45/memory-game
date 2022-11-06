@@ -249,42 +249,19 @@ body {
     display: none;
 }
 
+/* MEDIA QUERIES */
+
 @media (min-width: 700px) {
 
     .keyboard {
-        width: 70%;
-        margin: 0 auto;
+        margin: 0 10% auto 10%;
     }
 
-    button {
-
-        font-size: 50px;
-    }
-
-    .grid_assigned,
-    .grid_player,
-    .grid_result {
-        grid-template-rows: 150px 150px 150px;
-
-    }
-
-    .row {
-        grid-template-columns: 150px 150px 150px;
-    }
-
-    .grid_assigned_field,
-    .grid_player_field,
-    .grid_result_field {
-        width: 150px;
-        height: 150px;
-        font-size: 85px;
-
-    }
 
     .header {
         height: 120px;
 
-        font-size: 33px;
+        font-size: 28px;
     }
 
     .verdict, .correct {
@@ -295,14 +272,6 @@ body {
 @media (min-width: 900px) {
 
     .keyboard {
-        width: 60%;
-        margin: 0 auto;
+        margin: 0 20% auto 20%;
     }
-
-    .keyboard button {
-        flex-basis: calc((100%/5) - 2px);
-        font-size: 50px;
-    }
-
-
 }
